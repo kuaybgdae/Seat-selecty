@@ -1,16 +1,24 @@
-# 这是一个示例 Python 脚本。
-
-# 按 Shift+F10 执行或将其替换为您的代码。
-# 按 双击 Shift 在所有地方搜索类、文件、工具窗口、操作和设置。
-
-
-def print_hi(name):
-    # 在下面的代码行中使用断点来调试脚本。
-    print(f'Hi, {name}')  # 按 Ctrl+F8 切换断点。
-
-
-# 按间距中的绿色按钮以运行脚本。
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# 访问 https://www.jetbrains.com/help/pycharm/ 获取 PyCharm 帮助
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home Page</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <!-- Your content goes here -->
+    </div>
+	<h1>Welcome to the Home Page</h1>
+	<p>You have successfully logged in!</p>
+	<div>
+		<li><a href="{% url 'ticket' %}">购买机票</a></li>
+	</div>
+	<div>
+        <li><a href="{% url 'order' %}">查看订单</a></li>
+	</div>
+    <div>
+        <li><a href="{% url 'user_passage' %}">查看用户信息</a></li>
+	</div>
+</body>
+</html>
