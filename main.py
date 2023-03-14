@@ -1,3 +1,4 @@
+import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 import pandas as pd
 from keras.models import Sequential
@@ -25,13 +26,11 @@ print("测试集的形状：", X_test.shape, y_test.shape)
 # 创建神经网络模型
 model = Sequential()
 model.add(Dense(64, input_dim=50, activation='relu'))
-model.add(Dense(32, activation='relu'))
 model.add(Dense(16, activation='relu'))
 model.add(Dense(1, activation='sigmoid'))
 
 # 编译模型
 model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
-
 # 训练模型
 # model.fit(X_train, y_train, epochs=50, batch_size=32)
 history = model.fit(X_train, y_train, epochs=50, batch_size=32, validation_split=0.2)
@@ -42,6 +41,5 @@ print(history.history)
 # 在测试集上评估模型
 test_loss, test_acc = model.evaluate(X_test, y_test)
 print('测试集上的准确率:', test_acc)
-
 # 保存模型
 model.save('my_model.h5')
